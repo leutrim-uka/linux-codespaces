@@ -1,0 +1,17 @@
+chmod -x ./hello.sh     - make the file hello.sh executable. "chmod" makes it executable, "-x" makes it for all users
+df -h                   - disk usage (size, %, used, avail). "-h" makes it human-readable by formatiing it
+top                     - prints running processes (press q or ctrl+x to exit)
+
+pwd                     - present working directory
+ls -lah                 - 
+which <name>            - where is the location of the <name> in disk
+
+less <filename>         - read the contents inside of <filename> file
+cat <filename>          - read the contents inside of <filename> file
+touch <filename.ext>    - create new file with name <filename.ext>
+mkdir <name>            - create new directory
+
+mv <filename.ext> <dirname> - move file into new directory
+mv <filename.ext> <newfilename.ext> - rename file
+
+rm -rf <dirname>        - delete directory and everything inside
