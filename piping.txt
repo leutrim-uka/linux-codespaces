@@ -1,0 +1,16 @@
+ls -l /usr/bin | wc -l > bin.txt        - count files/dirs in /usr/bin, write result into bin.txt
+ls -l README.md && touch file.txt       - only if README.md exists, create new file.txt
+$STR='string goes here'                 - create variable STR, which stores some text
+echo "$STR" > lines.txt                 - writes content of STR into file linex.txt
+cat lines.txt | sort -r                 - read content from lines.txt and print it in reverse
+cat lines.txt | grep 3                  - search for number 3 in file lines.txt, print matches
+cat lines.txt | grep "Line"             - print all rows in lines.txt that have "Line"
+echo "text" >> lines.txt                - appends word "text" to the end of lines.txt
+tail -f file.log                        - tail prints the last few rows of the file
+                                            - -f stands for "follow", shows any updates done to the file in real time
+head -n 3 file.log                      - displays first 5 lines in file.log
+history                                 - displays history of commands you executed in shell
+history | grep tail                     - tells us if we executed the 'tail' command recently
+!56                                     - run command from line 56 in history logs
+!!                                      - run last command from history logs
+cat hello.txt | wc -w                   - count words in file hello.txt
