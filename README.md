@@ -1,10 +1,10 @@
 # Linux & Shell Scripting Overview
 
-# SSH (Secure Shell) Toolbox
-## Connecting to a server
+## SSH (Secure Shell) Toolbox
+### Connecting to a server
 If you have a laptop that wants to talk to a cloud server, you use an SSH to connect to it, and then treat it as your local machine by executing bash commands from the terminal. Friendly to developers.
 
-## Tunneling ports
+### Tunneling ports
 If you work with sensitive data, e.g., military or healthcare, you can tunnel and forward the server's port to your port. Say a Flask server is running on server, then you can make it run in your local machine.
 
 Example:
@@ -24,17 +24,17 @@ ssh: This is the command to start a new SSH session.
 
 ec2-user@54.89.238.83: This specifies the user and the IP address of the remote machine you're connecting to. In this case, the user is ec2-user and the IP address is 54.89.238.83.
 
-## Checkout from GitHub
+### Checkout from GitHub
 When you want to clone a repo, you can do it without a password using SSH keys.
 
 
-# Commands
+## Commands
 Access links
 ```shell
 curl 127.0.0.1:8080
 ```
 
-# Working with CSV files 
+## Working with CSV files 
 ```shell
 head -n 1 nba_2017.csv > nba_2017_shuffled.csv
 tail -n +2 nba_2017.csv | shuf >> nba_2017_shuffled.csv
@@ -53,3 +53,7 @@ tail -n +2 nba_2017.csv
 ```shell
 | shuf >> nba_2017_shuffled.csv
 ```
+
+
+## .bashrc files
+
