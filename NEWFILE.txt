@@ -1,4 +1,4 @@
-chmod -x ./hello.sh     - make the file hello.sh executable. "chmod" makes it executable, "-x" makes it for all users
+chmod +x ./hello.sh     - make the file hello.sh executable. "chmod" makes it executable, "-x" makes it for all users
 df -h                   - disk usage (size, %, used, avail). "-h" makes it human-readable by formatiing it
 top                     - prints running processes (press q or ctrl+x to exit)
 
