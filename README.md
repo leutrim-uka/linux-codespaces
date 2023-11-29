@@ -29,6 +29,12 @@ When you want to clone a repo, you can do it without a password using SSH keys.
 
 
 ## Commands
+# Commands
+* `>` directs the output of a command to a file
+* `|` (pipe operator) directs the output of a command to another command
+
+* `rsync`: The file synchronization process that commonly takes place using SSH is `rsync`. The `rsync` command is used to synchronize files and directories from one location to another while minimizing data transfer using delta encoding when appropriate. An important feature of `rsync` is that it works over SSH, providing security for the synchronized data.
+
 Access links
 ```shell
 curl 127.0.0.1:8080
