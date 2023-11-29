@@ -14,3 +14,5 @@ history | grep tail                     - tells us if we executed the 'tail' com
 !56                                     - run command from line 56 in history logs
 !!                                      - run last command from history logs
 cat hello.txt | wc -w                   - count words in file hello.txt
+
+shuf -n 100 file.csv > sampled.csv      - shuffle data and randomly select 100 rows from file.csv and write them into sampled.csv

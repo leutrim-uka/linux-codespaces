@@ -34,4 +34,22 @@ Access links
 curl 127.0.0.1:8080
 ```
 
-C
+# Working with CSV files 
+```shell
+head -n 1 nba_2017.csv > nba_2017_shuffled.csv
+tail -n +2 nba_2017.csv | shuf >> nba_2017_shuffled.csv
+```
+
+Explanation part by part:
+1. Appends the header (column names) as a first line into `nba_2017_shuffled.csv`
+```shell
+head -n 1 nba_2017.csv > nba_2017_shuffled.csv
+```
+2. Takes all rows starting from the second one (ignoring the column names)
+```shell
+tail -n +2 nba_2017.csv
+```
+3. appends (>>) those lines from step 2 into the file with the name columns from step 1
+```shell
+| shuf >> nba_2017_shuffled.csv
+```
