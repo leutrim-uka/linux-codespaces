@@ -1,5 +1,12 @@
 # Linux & Shell Scripting Overview
 
+Concepts:
+* Aliases
+* Configuring .bashrc with vim
+* Sourcing
+* Exporting variables / scope
+* UNIX Streams
+
 ## SSH (Secure Shell) Toolbox
 ### Connecting to a server
 If you have a laptop that wants to talk to a cloud server, you use an SSH to connect to it, and then treat it as your local machine by executing bash commands from the terminal. Friendly to developers.
@@ -62,4 +69,28 @@ tail -n +2 nba_2017.csv
 
 
 ## .bashrc files
+"Sourcing" a file means executing the commands in that file in the current shell, rather than in a subshell. This allows any variables or functions defined in that file to be used in the current shell.
 
+
+## UNIX Streams
+
+### Standard In
+You can prompt the user to input text into the terminal using the following line:
+```bash
+read -p 'Input: ' INPUT
+```
+_The input is stored into the variable INPUT. Print it by running the `echo $INPUT` command_
+
+Question: What do the backticks do in a bash file?
+
+### Writing shell errors into a file
+The following command checks if there is a directory named 'FAKEDIR' inside the root directory. When it doesn't find it, the error is written into the `error.txt` file, rather than being printed into the console. 
+```shell
+ls -l /FAKEDIR 2 > error.txt
+```
+_Note: Digit '2' is necessary for the command to work_
+
+In case you don't want error messages polluting your environment, you pipe them into something known like /dev/null, and they will be thrown away (not stored anywhere, not printed to the shell):
+```bash
+ls -l /FAKEDIR 2 > /dev/null
+```

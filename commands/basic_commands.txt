@@ -15,3 +15,7 @@ mv <filename.ext> <dirname> - move file into new directory
 mv <filename.ext> <newfilename.ext> - rename file
 
 rm -rf <dirname>        - delete directory and everything inside
+
+echo -e "Apple\nBanana"         - the option `-e` allows the \n to be recognized
+echo -e "text" | sort | uniq -c         - sort alphabetically, count unique words
+echo -e "text" | sort | uniq -c | grep Apple    - sort alphabetically, count unique words, find & show only "Apple"

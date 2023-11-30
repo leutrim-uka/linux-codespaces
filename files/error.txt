@@ -1,0 +1,3 @@
+ls: cannot access '/FAKEDIR': No such file or directory
+ls: cannot access '/FAKEDIR': No such file or directory
+ls: cannot access '/FAKEDIR': No such file or directory
