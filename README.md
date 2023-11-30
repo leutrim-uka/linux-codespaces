@@ -6,6 +6,7 @@ Concepts:
 * Sourcing
 * Exporting variables / scope
 * UNIX Streams
+* Shell logic and control flow
 
 ## SSH (Secure Shell) Toolbox
 ### Connecting to a server
@@ -41,6 +42,8 @@ When you want to clone a repo, you can do it without a password using SSH keys.
 * `|` (pipe operator) directs the output of a command to another command
 
 * `rsync`: The file synchronization process that commonly takes place using SSH is `rsync`. The `rsync` command is used to synchronize files and directories from one location to another while minimizing data transfer using delta encoding when appropriate. An important feature of `rsync` is that it works over SSH, providing security for the synchronized data.
+
+* `tr word1 word2 < file.txt`: replace word1 with word2 in file.txt
 
 Access links
 ```shell
@@ -94,3 +97,51 @@ In case you don't want error messages polluting your environment, you pipe them 
 ```bash
 ls -l /FAKEDIR 2 > /dev/null
 ```
+
+## Shell Logic & Control Flow
+If-Else syntax: 
+```shell
+echo "What food do you choose? "
+read FOOD
+
+if [ "$FOOD" = "Apple" ]; then
+	echo "Eat Yoghurt with your Apple"
+elif [ "$FOOD" = "Milk" ]; then
+	echo "Eat Cereal with your Milk"
+else
+	echo "Eat your ${FOOD} by itself"
+fi
+```
+
+## Arrays & loops
+Syntax to declare an array:
+```shell
+declare -a array=("apple" "pear" "cherry")
+```
+_Note: When you use -a, you indicate you're creating an array. Failing to provide the "-a" option may lead the shell to misinterpret the variable type_
+
+
+### For-Loop
+Syntax to loop through an array:
+```shell
+for i in "${array[@]}"
+do
+    echo "This ${i} is delicious"
+done
+
+```
+
+### While-Loop
+```shell
+COUNT=1
+while [ $COUNT -le $LOOPS]
+do
+    echo "Loop# $COUNT "
+    ((COUNT++))
+done
+```
+_Note: The spaces aroung "[" and "]" are mandatory. Without them, you'll get a syntax error._
+
+
+## Logic operators (&&, ||) in Bash
+

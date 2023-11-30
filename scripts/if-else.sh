@@ -7,5 +7,5 @@ if [ "$FOOD" = "Apple" ]; then
 elif [ "$FOOD" = "Milk" ]; then
 	echo "Eat Cereal with your Milk"
 else
-	echo "Eat your ${FOOD} by itself"
+	echo "Eat your $FOOD by itself"
 fi
