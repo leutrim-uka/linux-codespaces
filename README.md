@@ -145,3 +145,20 @@ _Note: The spaces aroung "[" and "]" are mandatory. Without them, you'll get a s
 
 ## Logic operators (&&, ||) in Bash
 
+With `&&`, command-2 will run iff command-1 executes successfully.
+```shell
+command-1 && command-2
+```
+
+With `||`, command-2 will run iff the first one fails.
+```shell
+command-1 || command-1
+```
+
+For example
+```shell
+echo "Text 1" && echo "Text 2"  # Output: Text 2
+false && echo "Text 2"          # Output: -
+echo "Text 1" || echo "Text 2"  # Output: Text 1
+false || echo "Text 2"          # Output: Text 2
+```
