@@ -162,3 +162,66 @@ false && echo "Text 2"          # Output: -
 echo "Text 1" || echo "Text 2"  # Output: Text 1
 false || echo "Text 2"          # Output: Text 2
 ```
+
+## Bash Shell techniques for Data
+* Truncate
+* Filter
+* Search
+
+### Truncating data in Bash
+`head` command takes by defatuls the top 10 rows from the file: 
+```shell
+head file.txt
+```
+To change the default number, use `-n`
+```shell
+head -n 5 file.txt
+```
+Similarly, `tail` takes the bottom 10 rows:
+```shell
+tail file.txt
+tail -n 5 file.txt
+```
+
+To shuffle the data without opening the entire file:
+```shell
+shuf file.txt
+```
+
+You can combine this with `head` to get only a specific number of rows:
+```shell
+shuf file.txt | head -n 5
+```
+
+### Filtering files with Bash
+`grep` command allows searching for patterns within a file. For example, the following line will print all lines where "apple" is present:
+```shell
+grep apple file.txt
+```
+
+To show the count instead of each instance, use `-c`:
+```shell
+grep -c apple file.txt
+```
+
+To search for multiple words and sum their occurances, use `-e`:
+```shell
+grep -c -e apple -e pear file.txt
+```
+
+Alternatively, to look for lines that DO NOT contain a word (pattern), use `-v`:
+```shell
+grep -v apple file.txt
+```
+
+### Custom patterns
+The command `find` allows going over files and searching for specific filenames. For example, the line below looks in the current directory, denoted by the dot (.), and looks for any files whose name ends with ".sh". In other words, it finds all bash scripts within the current directory:
+```shell
+find . -name "*.sh"
+```
+A more complex command, like the one below, allows searching only for executable files (`-perm /+x`), as long as (`!`) those files aren't invisible (`-name '.*'`). It also ignores folders (`-type f`):
+```shell
+find . -perm /+x ! -name '.*' -type f
+```
+
+
