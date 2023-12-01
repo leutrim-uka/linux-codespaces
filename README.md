@@ -224,4 +224,75 @@ A more complex command, like the one below, allows searching only for executable
 find . -perm /+x ! -name '.*' -type f
 ```
 
+## Bash script basics
+When you include the shebang at the top of the file in the following way, you can directly execute .sh files without explicitly typing the `bash` command beforehand. In order for this to work, make the .sh file executable by using `chod +x filename.sh` in the terminal. Shebang example:
+```shell
+#!/usr/bin/env bash
+```
 
+* `set -e`: set strict mode. Causes shell to exit when a command fails. Makes your code more robust against potential errors.
+* `set -v`: enables printing of shell input lines as they are read. Nice for debugging.
+* `set -x`: enables printing of command traces before executing the command. Tells you what it's about to do, and then does it.
+
+### Functions syntax
+```shell
+mimic() {
+    echo "First parameter: $1"
+    echo "Second parameter: $2"
+    echo "Third parameter: $3"
+}
+
+add() {
+    num1=$1
+    num2=$2
+    result=$((num1 + num2))
+    echo $result
+}
+
+# Will not echo the result, because it is captured into a variable
+output=$(add 4 5)
+
+add $output 4
+```
+
+### Parsing input from terminal
+`$#` is a special variable that holds the number of command-line arguments. In the example below, the while loop checks whether the number of args is greater than one (`-gt`). If so, it assigns the current arg to a variable `key`.
+```shell
+while [[ $# -gt 1 ]]
+do
+key="$1"
+```
+
+### Example bash script
+```shell
+i=1;    #initialize count
+j=$#;   #get script input size
+
+while [[ $# -ge 1 ]]
+do
+    rstring=$(echo $1 | rev);
+    echo "Reversing string $i: $1: $rstring";
+    i=$((i + 1));   #increment the count
+    shift 1;        #process the next argument
+done
+
+# run
+./palindromes.sh | xargs ./reverse.sh
+```
+
+In the code above, `xargs` takes each line of the output from `palindromes.sh` and uses it as input for `reverse.sh`
+
+## Makerfile vs. Dockerfile
+Makerfile:
+* Automates: it's been used for decades.
+* Recipe: a series of recipes.
+* Bash-like: it mostly looks like bash, with some subtle differences.
+
+Dockerfile:
+* Automates:
+* Containers:
+* Format
+
+
+Resources:
+[Book: Advanced Bash Scripting Guide](https://tldp.org/LDP/abs/abs-guide.pdf)
