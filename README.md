@@ -223,6 +223,27 @@ A more complex command, like the one below, allows searching only for executable
 ```shell
 find . -perm /+x ! -name '.*' -type f
 ```
+To search the entire filesystem, you need "admin rights", which you get by using `sudo`: 
+```shell
+sudo find / -name .zshrc
+```
+_Note: the `find` command works in real time, unlike `locate`, which uses a database that needs to be updated regularly to include new files created after the last update.
+To use the `locate` command, first install it:
+```shell
+# For debian systems
+sudo apt-get install mlocate
+
+# For ubuntu systems
+sudo yum install mlocate
+```
+
+Then update the database and start searching for files:
+```shell
+sudo updatedb
+locate .zshrc   # looks for all .zshrc files in the filesystem up to the latest database update
+locate -i .ZSHRC    # matches all .zshrc files regardless of the case
+locate -c .zshrc    # counts how many .zshrc files were found
+```
 
 ## Bash script basics
 When you include the shebang at the top of the file in the following way, you can directly execute .sh files without explicitly typing the `bash` command beforehand. In order for this to work, make the .sh file executable by using `chod +x filename.sh` in the terminal. Shebang example:
@@ -293,6 +314,12 @@ Dockerfile:
 * Containers:
 * Format
 
+## Searching the Linux filesystem
+* Visual
+* Live: `find`
+* Metadata: with `locate`. You need to run a command `updatedb`, which most people do using a cron job. In OS X, they have `mdefined` instead of `updatedb`.
 
-Resources:
-[Book: Advanced Bash Scripting Guide](https://tldp.org/LDP/abs/abs-guide.pdf)
+
+Next steps:
+[(Book; PDF) Advanced Bash Scripting Guide](https://tldp.org/LDP/abs/abs-guide.pdf)
+[(Website) Makefile Tutorial by Example](https://makefiletutorial.com/)
